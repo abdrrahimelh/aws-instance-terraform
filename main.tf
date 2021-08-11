@@ -18,6 +18,7 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   user_data = file("install_docker_machine_compose.sh")
   key_name="linux-key"
+  security_groups = ["swarm_sg"]
   tags = {
     Name = "i-${var.env}"
   }
