@@ -42,7 +42,10 @@ jobs:
         id: validate
         run: terraform validate
 
-     
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan 
+        continue-on-error: false
 
       - name: Terraform apply
         id: apply
