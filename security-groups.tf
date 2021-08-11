@@ -1,4 +1,5 @@
 
+variable "vpc_id" {}
 
 resource "aws_security_group" "swarm_sg" {
   name = "swarm_sg"
