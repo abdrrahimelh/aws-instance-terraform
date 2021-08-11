@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  tf_version: '1.0.4'
+  tf_version: '1.0.3'
 
 jobs:
   terraform:
@@ -25,7 +25,7 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 1.0.4
+          terraform_version: 1.0.3
 
 
       - name: Terraform fmt
@@ -42,10 +42,7 @@ jobs:
         id: validate
         run: terraform validate
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan 
-        continue-on-error: false
+     
 
       - name: Terraform apply
         id: apply
