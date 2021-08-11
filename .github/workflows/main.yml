@@ -44,10 +44,10 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -lock=false
+        run: terraform plan 
         continue-on-error: false
 
       - name: Terraform apply
         id: apply
-        run: terraform apply -var "env=dev" -auto-approve -lock=false
+        run: terraform apply -var "env=dev" -auto-approve 
 

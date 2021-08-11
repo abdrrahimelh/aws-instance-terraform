@@ -17,7 +17,9 @@ resource "aws_instance" "app_server" {
   ami           = "ami-0f7cd40eac2214b37"
   instance_type = "t2.micro"
   user_data = file("install_docker_machine_compose.sh")
+  key_name="linux-key"
   tags = {
     Name = "i-${var.env}"
   }
+  
 }
