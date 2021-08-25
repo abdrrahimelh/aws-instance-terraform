@@ -9,7 +9,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 sudo apt-get install -y docker-ce
 echo "Docker installed..."
-sudo usermod -aG docker ${whoami}
+sudo usermod -aG docker ubuntu
 #echo "enbale "
 #sudo /mnt/efs/docker-data
 #cp -au /var/lib/docker /var/lib/docker.bk
