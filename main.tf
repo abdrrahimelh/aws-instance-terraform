@@ -3,6 +3,9 @@ variable "env" {
   default="dev"
   
 }
+data "template_file" "ec2_user_data" {
+  template = "${file("${path.module}/install_docker_machine_compose.sh")}"
+}
 variable "region" {
   default="eu-west-3"
   
@@ -16,7 +19,7 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0f7cd40eac2214b37"
   instance_type = "t2.micro"
-  user_data = file("./install_docker_machine_compose.sh")
+  user_data =  "${data.template_file.ec2_user_data.template}"
   key_name="linux-key"
   security_groups = ["swarm_sg"]
   tags = {
